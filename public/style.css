@@ -307,12 +307,22 @@ input[type="text"]:focus {
 .hud-center .taps:last-child { color: var(--b); }
 .taps-sep { color: var(--muted); }
 
+.topbar {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
 .subbar {
   width: 100%;
   max-width: 900px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  gap: 8px;
   margin-bottom: 18px;
 }
 .subbar .status-badge { margin-bottom: 0; }
@@ -394,9 +404,9 @@ input[type="text"]:focus {
   width: 100%;
   max-width: 900px;
   padding: 26px;
-  font-size: 1.6rem;
+  font-size: 1.45rem;
   font-weight: 900;
-  letter-spacing: 2px;
+  letter-spacing: 0.5px;
   color: #041018;
   border: none;
   border-radius: 20px;
@@ -495,7 +505,7 @@ kbd {
   .countdown { font-size: 6rem; }
   .track { height: 68px; }
   .knot { width: 52px; height: 52px; }
-  .tug-btn { font-size: 1.3rem; padding: 22px; }
+  .tug-btn { font-size: 1.05rem; padding: 22px; letter-spacing: 0; }
   .plate { max-width: 42%; padding: 8px 12px; font-size: 0.85rem; }
   .hud-center { font-size: 1.1rem; }
   .code { font-size: 1.6rem; letter-spacing: 6px; }

@@ -45,9 +45,9 @@ Para usar outra porta: `PORT=3210 npm start` (Windows PowerShell: `$env:PORT=321
 1. **Máquina que roda o servidor**: abra o navegador em `http://localhost:3000`.
 2. **Outro dispositivo na mesma rede**: abra o endereço de **Rede** mostrado no console
    (ex.: `http://192.168.0.15:3000`). O Windows Firewall pode pedir para liberar a porta.
-3. **Jogador 1**: digite o apelido e clique em **Criar sala**. Um **código de 4 caracteres**
+3. **Jogador 1**: digite o **nome** e clique em **Criar sala**. Um **código de 4 caracteres**
    aparece (ex.: `K7QP`).
-4. **Jogador 2**: no outro dispositivo, digite o apelido, informe esse código e clique em
+4. **Jogador 2**: no outro dispositivo, digite o **nome**, informe esse código e clique em
    **Entrar**. A partida começa sozinha após a contagem regressiva.
 5. A partir do terceiro participante, quem entrar vira **Espectador** e assiste à partida.
 6. Também há **Partida rápida (fila)**: dois jogadores que escolherem essa opção são pareados
@@ -62,9 +62,12 @@ Get-NetTCPConnection -LocalPort 3000 -State Listen | ForEach-Object { Stop-Proce
 
 ## Como jogar
 
-- Clique no botão **PUXA!**, na arena ou aperte **Espaço** (o mais rápido que conseguir).
+- Clique no botão **Clique aqui rapidão!!**, na arena ou aperte **Espaço** (o mais rápido que
+  conseguir).
 - Cada clique empurra a barra para o lado do adversário. A partida termina quando a barra
   chega a −100 ou +100; **vence quem clicou mais**.
+- No topo da tela de jogo há **Reiniciar** (começa uma nova partida na hora, sem esperar o
+  fim) e **Voltar ao início** (sai da sala e volta ao lobby a qualquer momento).
 - Ao final, os dois podem pedir **revanche** sem sair da sala; o **placar da sessão** é mantido.
 - O servidor limita a **15 cliques por segundo** por jogador para neutralizar autoclickers.
 

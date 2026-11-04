@@ -15,7 +15,7 @@
       <h1 class="logo">🪢 Cabo de Guerra</h1>
       <p class="subtitle">Clique o mais rápido que puder e arraste o adversário!</p>
 
-      <label class="field-label" for="input-name">Seu apelido</label>
+      <label class="field-label" for="input-name">Nome</label>
       <input id="input-name" type="text" maxlength="16" placeholder="Ex.: Ana" autocomplete="off" />
 
       <button id="btn-create" class="btn btn-primary">Criar sala</button>
@@ -79,6 +79,16 @@
 
   <!-- ============ JOGO ============ -->
   <section id="screen-game" class="screen">
+    <div class="topbar">
+      <button id="btn-restart" class="btn btn-mini">Reiniciar</button>
+      <button id="btn-home" class="btn btn-mini">Voltar ao início</button>
+    </div>
+
+    <div class="subbar">
+      <span class="score" id="game-score">Placar 0 × 0</span>
+      <span class="status-badge small" id="game-status">Em combate</span>
+    </div>
+
     <div class="hud">
       <div class="plate plate-a">
         <span class="dot"></span>
@@ -95,11 +105,6 @@
       </div>
     </div>
 
-    <div class="subbar">
-      <span class="status-badge small" id="game-status">Em combate</span>
-      <span class="score" id="game-score">Placar 0 × 0</span>
-    </div>
-
     <div class="arena" id="arena">
       <div class="track">
         <div class="side side-me"></div>
@@ -114,7 +119,7 @@
       </div>
     </div>
 
-    <button class="tug-btn" id="tug-btn">PUXA!</button>
+    <button class="tug-btn" id="tug-btn">Clique aqui rapidão!!</button>
     <p class="hint" id="game-hint">Clique no botão, na arena ou aperte <kbd>Espaço</kbd></p>
 
     <div class="overlay" id="overlay-countdown">

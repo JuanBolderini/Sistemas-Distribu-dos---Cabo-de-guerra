@@ -101,6 +101,7 @@ function updateGameStatus() {
 function applyRoleUI() {
   const player = isPlayer();
   $('#tug-btn').classList.toggle('hidden', !player);
+  $('#btn-restart').classList.toggle('hidden', !player);
   $('#game-hint').innerHTML = player
     ? 'Clique no botão, na arena ou aperte <kbd>Espaço</kbd>'
     : 'Você é espectador — assista à partida';
@@ -223,6 +224,14 @@ $('#btn-queue-cancel').addEventListener('click', () => {
  * Sala de espera
  * ------------------------------------------------------------------ */
 $('#btn-room-leave').addEventListener('click', () => socket.emit('room:leave'));
+
+// Reinicia a partida sem esperar o fim (somente jogadores).
+$('#btn-restart').addEventListener('click', () => {
+  if (isPlayer()) socket.emit('match:restart');
+});
+
+// Abandona a sala a qualquer momento e volta ao início.
+$('#btn-home').addEventListener('click', () => socket.emit('room:leave'));
 
 $('#btn-copy').addEventListener('click', () => {
   const code = state.code || '';

@@ -119,6 +119,7 @@ o **próprio nome do evento** já é o tipo.
 | `match:quick` | `{ name: string }` | Entra na fila de partida rápida. |
 | `tap` | *(vazio)* | Intenção de clique (uma jogada). |
 | `rematch:request` | *(vazio)* | Solicita revanche ao final da partida. |
+| `match:restart` | *(vazio)* | Reinicia a partida em andamento (só jogadores; exige os dois na sala). |
 | `room:leave` | *(vazio)* | Sai da sala e/ou da fila. |
 
 O cliente **nunca** informa a posição da barra, o vencedor nem o placar — apenas a intenção.
@@ -219,12 +220,17 @@ a exibição (`displayPct`). A lógica não muda: é apenas apresentação.
 
 Quatro telas no mesmo documento (`index.html`), trocadas sem recarregar a página:
 
-1. **Lobby** — apelido, criar sala, entrar por código, partida rápida.
+1. **Lobby** — campo **Nome**, criar sala, entrar por código, partida rápida.
 2. **Fila** — aguardando oponente na partida rápida.
 3. **Sala de espera** — código para compartilhar, papel do usuário, roster, espectadores e
    placar da sessão.
-4. **Jogo** — HUD com nomes e contador de cliques, barra central com o "nó", botão `PUXA!`,
-   overlay de contagem regressiva e overlay de resultado com revanche.
+4. **Jogo** — barra de ações no topo (**Reiniciar** e **Voltar ao início**), placar da sessão
+   acima do contador de cliques, HUD com nomes, barra central com o "nó", botão
+   `Clique aqui rapidão!!`, overlay de contagem regressiva e overlay de resultado com revanche.
+
+O botão **Reiniciar** fica disponível a qualquer momento (contagem, combate ou fim) e só
+aparece para jogadores; o **Voltar ao início** encerra a participação e retorna ao lobby, e
+também vale para espectadores.
 
 Layout responsivo (mobile-first) com `@media (max-width: 640px)`; funciona em computador e
 celular. Os apelidos são escapados no servidor (`cleanName`) para evitar injeção de HTML.

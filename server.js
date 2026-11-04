@@ -489,6 +489,18 @@ io.on('connection', (socket) => {
     if (room.ready.p1 && room.ready.p2) startCountdown(room);
   });
 
+  // Reinicia a partida a qualquer momento; exige os dois jogadores na sala.
+  safeOn(socket, 'match:restart', () => {
+    const info = socketInfo.get(socket.id);
+    if (!info || info.role === 'spectator') return;
+
+    const room = rooms.get(info.code);
+    if (!room || !room.players.p1 || !room.players.p2) return;
+
+    log('partida:reiniciada', { code: room.code, papel: roleLabel(info.role) });
+    startCountdown(room);
+  });
+
   safeOn(socket, 'room:leave', () => {
     const qi = quickQueue.indexOf(socket.id);
     if (qi !== -1) {
