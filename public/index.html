@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cabo de Guerra Online</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-glow"></div>
+
+  <!-- ============ LOBBY ============ -->
+  <section id="screen-lobby" class="screen active">
+    <div class="card lobby-card">
+      <h1 class="logo">🪢 Cabo de Guerra</h1>
+      <p class="subtitle">Clique o mais rápido que puder e arraste o adversário!</p>
+
+      <label class="field-label" for="input-name">Seu apelido</label>
+      <input id="input-name" type="text" maxlength="16" placeholder="Ex.: Ana" autocomplete="off" />
+
+      <button id="btn-create" class="btn btn-primary">Criar sala</button>
+
+      <div class="divider"><span>ou entre com um código</span></div>
+
+      <div class="join-row">
+        <input id="input-code" type="text" maxlength="6" placeholder="CÓDIGO" class="code-input" autocomplete="off" />
+        <button id="btn-join" class="btn btn-ghost">Entrar</button>
+      </div>
+
+      <button id="btn-quick" class="btn btn-link">Partida rápida (fila)</button>
+
+      <p class="how">Jogador 1 · Jogador 2 · Espectadores — sem login</p>
+    </div>
+  </section>
+
+  <!-- ============ FILA (partida rápida) ============ -->
+  <section id="screen-queue" class="screen">
+    <div class="card waiting-card">
+      <div class="spinner"></div>
+      <h2>Procurando oponente…</h2>
+      <p class="muted">Apelido: <strong id="queue-name"></strong></p>
+      <button id="btn-queue-cancel" class="btn btn-ghost">Cancelar</button>
+    </div>
+  </section>
+
+  <!-- ============ SALA DE ESPERA ============ -->
+  <section id="screen-room" class="screen">
+    <div class="card room-card">
+      <div class="status-badge" id="room-status">Aguardando oponente</div>
+
+      <div class="code-box">
+        <span class="code-label">Código da sala</span>
+        <div class="code-row">
+          <span class="code" id="room-code">----</span>
+          <button id="btn-copy" class="btn btn-mini">Copiar</button>
+        </div>
+        <span class="muted small">Compartilhe este código para jogar com alguém</span>
+      </div>
+
+      <div class="role-badge" id="room-role">Você é Jogador 1</div>
+
+      <div class="roster">
+        <div class="slot" id="slot-p1">
+          <span class="slot-role">Jogador 1</span>
+          <span class="slot-name">aguardando…</span>
+        </div>
+        <div class="slot" id="slot-p2">
+          <span class="slot-role">Jogador 2</span>
+          <span class="slot-name">aguardando…</span>
+        </div>
+      </div>
+
+      <div class="spectators" id="spectators"></div>
+      <div class="scoreline" id="scoreline">Placar da sessão: 0 × 0</div>
+
+      <button id="btn-room-leave" class="btn btn-ghost">Sair da sala</button>
+    </div>
+  </section>
+
+  <!-- ============ JOGO ============ -->
+  <section id="screen-game" class="screen">
+    <div class="hud">
+      <div class="plate plate-a">
+        <span class="dot"></span>
+        <span class="name" id="name-me">—</span>
+      </div>
+      <div class="hud-center">
+        <span class="taps" id="taps-me">0</span>
+        <span class="taps-sep">:</span>
+        <span class="taps" id="taps-op">0</span>
+      </div>
+      <div class="plate plate-b">
+        <span class="name" id="name-op">—</span>
+        <span class="dot"></span>
+      </div>
+    </div>
+
+    <div class="subbar">
+      <span class="status-badge small" id="game-status">Em combate</span>
+      <span class="score" id="game-score">Placar 0 × 0</span>
+    </div>
+
+    <div class="arena" id="arena">
+      <div class="track">
+        <div class="side side-me"></div>
+        <div class="side side-op"></div>
+        <div class="center-line"></div>
+        <div class="knot" id="knot"></div>
+      </div>
+      <div class="labels">
+        <span id="label-me">—</span>
+        <span class="center-label">centro</span>
+        <span id="label-op">—</span>
+      </div>
+    </div>
+
+    <button class="tug-btn" id="tug-btn">PUXA!</button>
+    <p class="hint" id="game-hint">Clique no botão, na arena ou aperte <kbd>Espaço</kbd></p>
+
+    <div class="overlay" id="overlay-countdown">
+      <div class="countdown" id="countdown-value">3</div>
+    </div>
+
+    <div class="overlay" id="overlay-result">
+      <div class="result-card">
+        <h2 id="result-title">Você venceu!</h2>
+        <p id="result-sub" class="muted"></p>
+        <div class="result-actions">
+          <button class="btn btn-primary" id="btn-again">Jogar novamente</button>
+          <button class="btn btn-ghost" id="btn-lobby">Sair da sala</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="client.js"></script>
+</body>
+</html>
