@@ -4,3 +4,7 @@ npm-debug.log*
 Thumbs.db
 *.log
 .env
+
+# Arquivos temporários de editores (ex.: Word/LibreOffice)
+~$*
+.~lock.*

@@ -291,6 +291,16 @@ input[type="text"]:focus {
   overflow: hidden;
 }
 .plate .name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.plate-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  max-width: 38%;
+}
+.plate-col .plate { max-width: 100%; }
+.plate-col .status-badge { margin: 0; }
 .dot { width: 12px; height: 12px; border-radius: 50%; flex: none; }
 .plate-a .dot { background: var(--a); box-shadow: 0 0 12px var(--a); }
 .plate-b .dot { background: var(--b); box-shadow: 0 0 12px var(--b); }
@@ -325,7 +335,6 @@ input[type="text"]:focus {
   gap: 8px;
   margin-bottom: 18px;
 }
-.subbar .status-badge { margin-bottom: 0; }
 .subbar .score { font-weight: 700; font-size: 0.85rem; color: var(--muted); }
 
 /* ---------- Arena / barra ---------- */

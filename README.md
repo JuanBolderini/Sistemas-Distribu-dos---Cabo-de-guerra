@@ -106,12 +106,7 @@ docs/
 
 ## Integrantes
 
-> Preencher com o nome completo e o papel de cada integrante do grupo.
->
-> | Integrante | Papel |
-> | --- | --- |
-> | — | Coordenação e integração |
-> | — | Servidor e comunicação |
-> | — | Regras do jogo |
-> | — | Interface web |
-> | — | Qualidade e documentação |
+| Integrante | Papel |
+| --- | --- |
+| Juan Victor Bolderini Menecucci | Coordenação e integração · Servidor e comunicação · Regras do jogo |
+| Douglas Lelis | Interface web · Qualidade e documentação · Regras do jogo |
