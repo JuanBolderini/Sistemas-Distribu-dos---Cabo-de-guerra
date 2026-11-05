@@ -1,7 +1,7 @@
 # 🪢 Cabo de Guerra Online
 
 Jogo multiplayer em tempo real para navegador, desenvolvido como projeto da disciplina
-**Arena Distribuída — 5º Semestre**. Dois jogadores puxam a corda clicando o mais rápido
+**Sistemas Distribuídos — 5º Semestre**. Dois jogadores puxam a corda clicando o mais rápido
 possível; a barra central caminha para o lado de **quem clicou menos** até chegar ao fim.
 
 O foco do projeto não é o jogo em si, e sim a **comunicação cliente-servidor**: o servidor
